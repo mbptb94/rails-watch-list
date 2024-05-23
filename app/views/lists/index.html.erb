@@ -1,0 +1,11 @@
+<div class= "banner" class="text-center "style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static.vecteezy.com/ti/vecteur-libre/p1/15416101-banniere-de-signe-de-temps-de-film-enregistrement-icones-de-projecteur-ancienne-pellicule-de-cadre-de-rouleau-d-image-festival-des-projecteurs-affiche-de-cinema-ou-modele-de-flyer-pour-votre-conception-illustrationle-gratuit-vectoriel.jpg)">
+  <div class="container text-center">
+    <h1>Accueil</h1>
+  </div>
+</div>
+    <ul>
+      <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list) %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'créer une liste', new_list_path %>

@@ -1,0 +1,21 @@
+<div class="container">
+<%# Titre de la page %>
+<h1>Bookmarks de la liste</h1>
+
+<%# Card bookmark %>
+<ul class="list-unstyled">
+  <% @bookmarks.each do |bookmark| %>
+  <li >
+    <h4 class="fw-bold"><%= bookmark.movie.title %></h4>
+    <p class="fw-lighter"><%= bookmark.movie.overview %></p>
+   <p class="fst-italic"><%= bookmark.comment %></p>
+   <p><%= link_to 'Delete', bookmark_path(bookmark), data: {turbo_method: :Delete, turbo_confirm: 'Are you sure?'} %></p>
+  </li>
+  <% end %>
+</ul>
+
+<%# Lien vers new book mark %>
+<p><%= link_to 'Add a new bookmark', new_list_bookmark_path(@list) %></p>
+<%# Lien retour a l'accueil %>
+<p><%= link_to 'Back to index', lists_path %></p>
+</div>
