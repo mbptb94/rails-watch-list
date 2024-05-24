@@ -4,12 +4,19 @@
 
 <%# Card bookmark %>
 <ul class="list-unstyled">
+
+    <% if @list.photo.attached? %>
+      <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <p>No photo</p>
+    <% end %>
+
   <% @bookmarks.each do |bookmark| %>
   <li >
     <h4 class="fw-bold"><%= bookmark.movie.title %></h4>
     <p class="fw-lighter"><%= bookmark.movie.overview %></p>
-   <p class="fst-italic"><%= bookmark.comment %></p>
-   <p><%= link_to 'Delete', bookmark_path(bookmark), data: {turbo_method: :Delete, turbo_confirm: 'Are you sure?'} %></p>
+    <p class="fst-italic"><%= bookmark.comment %></p>
+    <p><%= link_to 'Delete', bookmark_path(bookmark), data: {turbo_method: :Delete, turbo_confirm: 'Are you sure?'} %></p>
   </li>
   <% end %>
 </ul>
